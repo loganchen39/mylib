@@ -1,0 +1,9 @@
+#!/bin/tcsh
+
+# gfortran -c -static -fconvert=big-endian libclg.f90
+# ifort -c -static -assume byterecl -convert big_endian libclg.f90
+ifort -assume byterecl -convert big_endian libclg.f90
+
+# rm -f libclg.a
+# ar ru libclg.a libclg.o
+# rm -f libclg.o

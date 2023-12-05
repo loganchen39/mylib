@@ -1,0 +1,98 @@
+
+C NCLFORTSTART
+      subroutine qsort(arr, n_elem)
+      integer n_elem
+      real    arr(n_elem)
+C NCLEND
+C NCLFORTSTART
+      subroutine search_index_binary(sorted_arr, n_elem, key, res_idx)
+      integer n_elem
+      real    sorted_arr(n_elem)
+      real    key
+      integer res_idx
+C NCLEND
+C NCLFORTSTART
+      subroutine compute_pr_ets_us_cwrf(pr_obs, pr_mod, N_ETS, lcc, us_landmask, buffer_zone, ocean, us_land_only, NX, NY, ets)
+      integer N_ETS, NX, NY
+      real    pr_obs(NX, NY), pr_mod(NX, NY), lcc(NX, NY), us_landmask(NX, NY)
+      real    ets(N_ETS)
+      logical buffer_zone, ocean, us_land_only
+C NCLEND
+C NCLFORTSTART
+      subroutine write_out_5dayAvg2monthlyAvg_SODA_MOM(curr_yr, curr_mon, avg_temp, avg_salt, avg_u, avg_v, avg_sea_level, avg_wt, avg_tau_x, avg_tau_y, XT_OCEAN, YT_OCEAN, ST_OCEAN)
+      integer curr_yr, curr_mon, XT_OCEAN, YT_OCEAN, ST_OCEAN
+      real    avg_temp(XT_OCEAN, YT_OCEAN, ST_OCEAN, 1), avg_salt(XT_OCEAN, YT_OCEAN, ST_OCEAN, 1), avg_u(XT_OCEAN, YT_OCEAN, ST_OCEAN, 1), avg_v(XT_OCEAN, YT_OCEAN, ST_OCEAN, 1), avg_sea_level(XT_OCEAN, YT_OCEAN, 1), avg_wt(XT_OCEAN, YT_OCEAN, ST_OCEAN, 1), avg_tau_x(XT_OCEAN, YT_OCEAN, 1), avg_tau_y(XT_OCEAN, YT_OCEAN, 1)
+C NCLEND
+C NCLFORTSTART
+      subroutine write_out_5dayAvg2monthlyAvg_SODA_MOM_ice(curr_yr, curr_mon, avg_CN, avg_HI, xt, yt, ct)
+      integer curr_yr, curr_mon, xt, yt, ct
+      real    avg_CN(xt, yt, ct, 1), avg_HI(xt, yt, 1)
+C NCLEND
+C NCLFORTSTART
+      subroutine write_out_5dayAvg2monthlyAvg_SODA_MOM_1979_1981(curr_yr, curr_mon, avg_temp, avg_salt, avg_u, avg_v, avg_ssh, avg_mlt, avg_mlp, avg_mls, avg_pbot, avg_wt, avg_prho, avg_tau_x, avg_tau_y, XT_OCEAN, YT_OCEAN, ST_OCEAN)
+      integer curr_yr, curr_mon, XT_OCEAN, YT_OCEAN, ST_OCEAN
+      real    avg_temp(XT_OCEAN, YT_OCEAN, ST_OCEAN, 1), avg_salt(XT_OCEAN, YT_OCEAN, ST_OCEAN, 1), avg_u(XT_OCEAN, YT_OCEAN, ST_OCEAN, 1), avg_v(XT_OCEAN, YT_OCEAN, ST_OCEAN, 1), avg_ssh(XT_OCEAN, YT_OCEAN, 1), avg_mlt(XT_OCEAN, YT_OCEAN, 1), avg_mlp(XT_OCEAN, YT_OCEAN, 1), avg_mls(XT_OCEAN, YT_OCEAN, 1), avg_pbot(XT_OCEAN, YT_OCEAN, 1), avg_wt(XT_OCEAN, YT_OCEAN, ST_OCEAN, 1), avg_prho(XT_OCEAN, YT_OCEAN, ST_OCEAN, 1), avg_tau_x(XT_OCEAN, YT_OCEAN, 1), avg_tau_y(XT_OCEAN, YT_OCEAN, 1)
+C NCLEND
+C NCLFORTSTART
+      subroutine cal_temp_fcs_obs_diff_dist(yr, mon, day, jul_day, temp_tmp)
+      integer yr, mon, day, jul_day, temp_tmp(71, 34)
+C NCLEND
+C NCLFORTSTART
+      subroutine cal_salt_fcs_obs_diff_dist(yr, mon, day, jul_day, salt_tmp)
+      integer yr, mon, day, jul_day, salt_tmp(71, 34)
+C NCLEND
+C NCLFORTSTART
+      subroutine sst_noaa2soda_1hr(ni, nj, time, lon_noaa, lat_noaa, sst_noaa, sses_bias, l2p_flags, quality_level, sst_soda, n_sst_soda)
+      integer         ni, nj, time, n_sst_soda(360, 180)
+      integer*2       l2p_flags(ni, nj)
+      integer*1       quality_level(ni, nj)
+      real            lon_noaa(ni, nj), lat_noaa(ni, nj), sst_noaa(ni, nj), sses_bias(ni, nj), sst_soda(360, 180)
+C NCLEND
+C NCLFORTSTART
+      subroutine sst_noaa2soda_10min(lon, lat, time, lon_noaa, lat_noaa, sst_noaa, sses_bias, l2p_flags, quality_level, sst_soda, n_sst_soda)
+      integer         lon, lat, time, n_sst_soda(360, 180)
+      integer*2       l2p_flags(lon, lat)
+      integer*1       quality_level(lon, lat)
+      real            lon_noaa(lon), lat_noaa(lat), sst_noaa(lon, lat), sses_bias(lon, lat), sst_soda(360, 180)
+C NCLEND
+C NCLFORTSTART
+      subroutine write_sst_noaa2soda_5day_avg(ndat, sst_soda)
+      integer ndat
+      real    sst_soda(360, 180)
+C NCLEND
+C NCLFORTSTART
+      subroutine write_out_monthlyAvg_nc_SODA(curr_yr, curr_mon, i_var, str_var, var)
+      integer curr_yr, curr_mon, i_var
+      character*(*) str_var
+      real    var(720, 330, 50)
+C NCLEND
+C NCLFORTSTART
+      subroutine write_out_monthlyAvg_nc_SODA_339(curr_yr, curr_mon, i_var, str_var, var)
+      integer curr_yr, curr_mon, i_var
+      character*(*) str_var
+      real    var(720, 330, 50)
+C NCLEND
+C NCLFORTSTART
+      subroutine write_out_monthlyAvg_isopycn_nc_SODA_339(curr_yr, curr_mon, str_var, var)
+      integer curr_yr, curr_mon
+      character*(*) str_var
+      real    var(720, 330, 16)
+C NCLEND
+C NCLFORTSTART
+      subroutine write_out_monthlyAvg_ice_nc_SODA_339(curr_yr, curr_mon, i_var, str_var, var)
+      integer curr_yr, curr_mon, i_var
+      character*(*) str_var
+      real    var(720, 330, 5)
+C NCLEND
+C NCLFORTSTART
+      subroutine write_out_monthlyAvg_nc_SODA_330(curr_yr, curr_mon, i_var, str_var, var)
+      integer curr_yr, curr_mon, i_var
+      character*(*) str_var
+      real    var(720, 330, 50)
+C NCLEND
+C NCLFORTSTART
+      subroutine write_out_monthlyAvg_nc_SODA_341(curr_yr, curr_mon, i_var, str_var, var)
+      integer curr_yr, curr_mon, i_var
+      character*(*) str_var
+      real    var(720, 330, 50)
+C NCLEND
